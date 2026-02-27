@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BenefitsSection } from "@/components/benefits-section";
+import { Footer } from "@/components/footer";
 import { Logo } from "@/components/logo";
 import { ReviewsSection } from "@/components/reviews-section";
 import { MobileMenu } from "@/components/mobile-menu";
@@ -103,6 +104,7 @@ export default function HomePage() {
         <BenefitsSection />
         <ReviewsSection />
       </main>
+      <Footer />
     </div>
   );
 }

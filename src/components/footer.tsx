@@ -1,0 +1,121 @@
+import Image from "next/image";
+import Link from "next/link";
+
+import { Logo } from "@/components/logo";
+import { navigation } from "@/data/navigation";
+
+const socialLinks = [
+  { name: "GitHub", icon: "/github.svg", href: "#" },
+  { name: "Discord", icon: "/discord.svg", href: "#" },
+  { name: "Reddit", icon: "/reddit.svg", href: "#" },
+  { name: "Twitter", icon: "/twitter.svg", href: "#" },
+];
+
+const gradientText =
+  "bg-[linear-gradient(to_right,#FF3BFF_0%,#ECBFBF_38%,#5C24FF_76%,#D94FD5_100%)] bg-clip-text text-transparent [-webkit-background-clip:text]";
+
+export function Footer() {
+  return (
+    <footer aria-label="Site footer">
+      <div
+        aria-hidden="true"
+        className="h-px w-full bg-[linear-gradient(to_right,#FF3BFF_0%,#ECBFBF_38%,#5C24FF_76%,#D94FD5_100%)]"
+      />
+
+      <div className="mx-auto max-w-334 px-4 py-16 lg:py-24">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Column 1 — Brand */}
+          <div className="flex flex-col gap-4">
+            <Logo />
+            <p className="font-montserrat text-sm text-white/60">
+              The future of decentralized intelligence.
+            </p>
+          </div>
+
+          {/* Column 2 — Explore */}
+          <nav aria-label="Footer navigation">
+            <h2
+              className={`mb-6 font-montserrat text-xs font-medium tracking-widest uppercase ${gradientText}`}
+            >
+              Explore
+            </h2>
+            <ul className="flex list-none flex-col gap-3">
+              {navigation.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="font-clash-grotesk text-sm text-white/60 transition-colors duration-200 hover:text-white"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Column 3 — Connect */}
+          <div>
+            <h2
+              className={`mb-6 font-montserrat text-xs font-medium tracking-widest uppercase ${gradientText}`}
+            >
+              Connect
+            </h2>
+            <ul className="flex list-none flex-col gap-3">
+              <li>
+                <Link
+                  href="mailto:hello@serendale.ai"
+                  className="font-montserrat text-sm text-white/60 transition-colors duration-200 hover:text-white"
+                >
+                  hello@serendale.ai
+                </Link>
+              </li>
+              {socialLinks.map(({ name, icon, href }) => (
+                <li key={name}>
+                  <Link
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-row items-center gap-2 font-montserrat text-sm text-white/60 transition-colors duration-200 hover:text-white"
+                  >
+                    <Image
+                      src={icon}
+                      alt=""
+                      aria-hidden="true"
+                      width={16}
+                      height={16}
+                      className="opacity-60"
+                    />
+                    {name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-16 border-t border-white/6 pt-8">
+          <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+            <div className="flex flex-row gap-6">
+              <Link
+                href="#"
+                className="font-montserrat text-xs text-white/50 transition-colors duration-200 hover:text-white/80"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="#"
+                className="font-montserrat text-xs text-white/50 transition-colors duration-200 hover:text-white/80"
+              >
+                Terms of Service
+              </Link>
+            </div>
+            <p className="font-montserrat text-xs text-white/50">
+              © 2026 Serendale AI. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
