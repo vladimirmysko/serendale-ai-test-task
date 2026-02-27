@@ -3,13 +3,7 @@ import Link from "next/link";
 
 import { Logo } from "@/components/logo";
 import { navigation } from "@/data/navigation";
-
-const socialLinks = [
-  { name: "GitHub", icon: "/github.svg", href: "#" },
-  { name: "Discord", icon: "/discord.svg", href: "#" },
-  { name: "Reddit", icon: "/reddit.svg", href: "#" },
-  { name: "Twitter", icon: "/twitter.svg", href: "#" },
-];
+import { socialLinks } from "@/data/social-links";
 
 const gradientText =
   "bg-[linear-gradient(to_right,#FF3BFF_0%,#ECBFBF_38%,#5C24FF_76%,#D94FD5_100%)] bg-clip-text text-transparent [-webkit-background-clip:text]";

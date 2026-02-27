@@ -4,9 +4,10 @@ import Link from "next/link";
 import { BenefitsSection } from "@/components/benefits-section";
 import { Footer } from "@/components/footer";
 import { Logo } from "@/components/logo";
-import { ReviewsSection } from "@/components/reviews-section";
 import { MobileMenu } from "@/components/mobile-menu";
+import { ReviewsSection } from "@/components/reviews-section";
 import { navigation } from "@/data/navigation";
+import { socialLinks } from "@/data/social-links";
 
 export default function HomePage() {
   return (
@@ -22,36 +23,18 @@ export default function HomePage() {
             ))}
           </nav>
           <ul className="hidden flex-row gap-4 self-end pb-1.5 lg:flex">
-            <li>
-              <Link href="#">
-                <Image src="/github.svg" alt="GitHub" width={20} height={20} />
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <Image
-                  src="/discord.svg"
-                  alt="Discord"
-                  width={20}
-                  height={20}
-                />
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <Image src="/reddit.svg" alt="Reddit" width={20} height={20} />
-              </Link>
-            </li>
-            <li>
-              <Link href="#">
-                <Image
-                  src="/twitter.svg"
-                  alt="Twitter"
-                  width={20}
-                  height={20}
-                />
-              </Link>
-            </li>
+            {socialLinks.map((link) => (
+              <li key={link.name}>
+                <Link href={link.href}>
+                  <Image
+                    src={link.icon}
+                    alt={link.name}
+                    width={20}
+                    height={20}
+                  />
+                </Link>
+              </li>
+            ))}
           </ul>
           <MobileMenu />
         </div>
