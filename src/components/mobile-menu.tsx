@@ -45,7 +45,7 @@ export function MobileMenu() {
                   <a
                     key={item.name + "mobile-menu"}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 font-clash-grotesk text-lg text-white transition-colors hover:bg-white/5"
+                    className="-mx-3 block rounded-lg px-3 py-2 font-clash-grotesk text-lg text-white transition-[background-color,transform] duration-200 hover:translate-x-1 hover:bg-white/5"
                   >
                     {item.name}
                   </a>

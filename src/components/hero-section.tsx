@@ -21,7 +21,7 @@ export function HeroSection() {
           algorithm enables unlimited speeds.
         </p>
         <div className="mt-8 flex flex-row items-stretch gap-3 sm:items-center">
-          <div className="w-full rounded-full bg-[linear-gradient(to_right,#FF3BFF_0%,#ECBFBF_38%,#5C24FF_76%,#D94FD5_100%)] p-0.5 sm:w-auto">
+          <div className="w-full rounded-full bg-[linear-gradient(to_right,#FF3BFF_0%,#ECBFBF_38%,#5C24FF_76%,#D94FD5_100%)] p-0.5 transition-transform duration-200 hover:scale-[1.03] sm:w-auto">
             <Link
               href="#"
               className="block rounded-full bg-black px-6 py-3.5 text-center font-space-grotesk text-base whitespace-nowrap sm:px-8 sm:py-5.5 sm:text-xl"
@@ -31,7 +31,7 @@ export function HeroSection() {
           </div>
           <Link
             href="#"
-            className="w-full rounded-full border-2 bg-black px-6 py-3.5 text-center font-space-grotesk text-base whitespace-nowrap sm:w-auto sm:px-8 sm:py-5.5 sm:text-xl"
+            className="w-full rounded-full border-2 bg-black px-6 py-3.5 text-center font-space-grotesk text-base whitespace-nowrap transition-[transform,border-color] duration-200 hover:scale-[1.03] sm:w-auto sm:px-8 sm:py-5.5 sm:text-xl"
           >
             Read more
           </Link>
