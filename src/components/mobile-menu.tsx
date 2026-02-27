@@ -15,7 +15,7 @@ export function MobileMenu() {
       <button
         type="button"
         onClick={() => setMobileMenuOpen(true)}
-        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white lg:hidden"
+        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
       >
         <span className="sr-only">Open main menu</span>
         <Bars3Icon aria-hidden="true" className="size-6" />
@@ -32,7 +32,7 @@ export function MobileMenu() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-my-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+              className="-my-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
@@ -45,7 +45,7 @@ export function MobileMenu() {
                   <a
                     key={item.name + "mobile-menu"}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 font-clash-grotesk text-lg text-white transition-[background-color,transform] duration-200 hover:translate-x-1 hover:bg-white/5"
+                    className="-mx-3 block rounded-lg px-3 py-2 font-clash-grotesk text-lg text-white transition-[background-color,transform] duration-200 hover:translate-x-1 hover:bg-white/5 focus-visible:outline-none focus-visible:translate-x-1 focus-visible:bg-white/5"
                   >
                     {item.name}
                   </a>

@@ -38,7 +38,7 @@ export function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="relative font-clash-grotesk text-sm text-white/60 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white after:transition-[width] after:duration-300 after:content-[''] hover:text-white hover:after:w-full"
+                    className="relative font-clash-grotesk text-sm text-white/60 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white after:transition-[width] after:duration-300 after:content-[''] hover:text-white hover:after:w-full focus-visible:outline-none focus-visible:text-white focus-visible:after:w-full"
                   >
                     {item.name}
                   </Link>
@@ -58,7 +58,7 @@ export function Footer() {
               <li>
                 <Link
                   href="mailto:hello@serendale.ai"
-                  className="relative font-montserrat text-sm text-white/60 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white after:transition-[width] after:duration-300 after:content-[''] hover:text-white hover:after:w-full"
+                  className="relative font-montserrat text-sm text-white/60 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white after:transition-[width] after:duration-300 after:content-[''] hover:text-white hover:after:w-full focus-visible:outline-none focus-visible:text-white focus-visible:after:w-full"
                 >
                   hello@serendale.ai
                 </Link>
@@ -69,7 +69,7 @@ export function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex flex-row items-center gap-2 font-montserrat text-sm text-white/60 transition-[color] duration-200 hover:text-white"
+                    className="group flex flex-row items-center gap-2 rounded-sm font-montserrat text-sm text-white/60 transition-[color] duration-200 hover:text-white focus-visible:outline-none focus-visible:text-white focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                   >
                     <Image
                       src={icon}
@@ -93,13 +93,13 @@ export function Footer() {
             <div className="flex flex-row gap-6">
               <Link
                 href="#"
-                className="relative font-montserrat text-xs text-white/50 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white/80 after:transition-[width] after:duration-300 after:content-[''] hover:text-white/80 hover:after:w-full"
+                className="relative font-montserrat text-xs text-white/50 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white/80 after:transition-[width] after:duration-300 after:content-[''] hover:text-white/80 hover:after:w-full focus-visible:outline-none focus-visible:text-white/80 focus-visible:after:w-full"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="#"
-                className="relative font-montserrat text-xs text-white/50 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white/80 after:transition-[width] after:duration-300 after:content-[''] hover:text-white/80 hover:after:w-full"
+                className="relative font-montserrat text-xs text-white/50 transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white/80 after:transition-[width] after:duration-300 after:content-[''] hover:text-white/80 hover:after:w-full focus-visible:outline-none focus-visible:text-white/80 focus-visible:after:w-full"
               >
                 Terms of Service
               </Link>

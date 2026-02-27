@@ -21,7 +21,7 @@ export default function HomePage() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative font-clash-grotesk text-lg text-white transition-[color,opacity] duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white after:transition-[width] after:duration-300 after:content-[''] hover:after:w-full"
+                className="relative font-clash-grotesk text-lg text-white transition-[color,opacity] duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-white after:transition-[width] after:duration-300 after:content-[''] hover:after:w-full focus-visible:outline-none focus-visible:after:w-full"
               >
                 {item.name}
               </Link>
@@ -32,10 +32,10 @@ export default function HomePage() {
             className="hidden flex-row gap-4 self-end pb-1.5 lg:flex"
           >
             {socialLinks.map((link) => (
-              <li key={link.name}>
+              <li key={link.name} className="flex">
                 <Link
                   href={link.href}
-                  className="group transition-transform duration-200 hover:scale-110"
+                  className="group rounded-sm transition-transform duration-200 focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none"
                 >
                   <Image
                     src={link.icon}

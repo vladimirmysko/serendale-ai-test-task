@@ -24,14 +24,14 @@ export function HeroSection() {
           <div className="w-full rounded-full bg-[linear-gradient(to_right,#FF3BFF_0%,#ECBFBF_38%,#5C24FF_76%,#D94FD5_100%)] p-0.5 transition-transform duration-200 hover:scale-[1.03] sm:w-auto">
             <Link
               href="#"
-              className="block rounded-full bg-black px-6 py-3.5 text-center font-space-grotesk text-base whitespace-nowrap sm:px-8 sm:py-5.5 sm:text-xl"
+              className="block rounded-full bg-black px-6 py-3.5 text-center font-space-grotesk text-base whitespace-nowrap focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none sm:px-8 sm:py-5.5 sm:text-xl"
             >
               Get started
             </Link>
           </div>
           <Link
             href="#"
-            className="w-full rounded-full border-2 bg-black px-6 py-3.5 text-center font-space-grotesk text-base whitespace-nowrap transition-[transform,border-color] duration-200 hover:scale-[1.03] sm:w-auto sm:px-8 sm:py-5.5 sm:text-xl"
+            className="w-full rounded-full border-2 bg-black px-6 py-3.5 text-center font-space-grotesk text-base whitespace-nowrap transition-transform duration-200 hover:scale-[1.03] focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none sm:w-auto sm:px-8 sm:py-5.5 sm:text-xl"
           >
             Read more
           </Link>
