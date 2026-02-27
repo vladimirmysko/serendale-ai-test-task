@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { BenefitsSection } from "@/components/benefits-section";
 import { Logo } from "@/components/logo";
 import { MobileMenu } from "@/components/mobile-menu";
 import { navigation } from "@/data/navigation";
@@ -97,6 +98,8 @@ export default function HomePage() {
             />
           </div>
         </div>
+
+        <BenefitsSection />
       </main>
     </div>
   );
