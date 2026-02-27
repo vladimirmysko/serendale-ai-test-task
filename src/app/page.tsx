@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { BenefitsSection } from "@/components/benefits-section";
 import { Logo } from "@/components/logo";
+import { ReviewsSection } from "@/components/reviews-section";
 import { MobileMenu } from "@/components/mobile-menu";
 import { navigation } from "@/data/navigation";
 
@@ -100,6 +101,7 @@ export default function HomePage() {
         </div>
 
         <BenefitsSection />
+        <ReviewsSection />
       </main>
     </div>
   );
