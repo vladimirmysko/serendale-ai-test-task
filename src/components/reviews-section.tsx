@@ -81,7 +81,10 @@ function StarRating({ rating }: { rating: 4 | 5 }) {
         <svg
           key={i}
           aria-hidden="true"
-          className={cn("size-4", i < rating ? "text-[#FF3BFF]" : "text-white/20")}
+          className={cn(
+            "size-4",
+            i < rating ? "text-[#FF3BFF]" : "text-white/20",
+          )}
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -100,7 +103,9 @@ const jsonLd = {
   operatingSystem: "Web",
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1),
+    ratingValue: (
+      reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
+    ).toFixed(1),
     reviewCount: String(reviews.length),
     bestRating: "5",
     worstRating: "1",
@@ -108,21 +113,107 @@ const jsonLd = {
   review: reviews.map((r) => ({
     "@type": "Review",
     author: { "@type": "Person", name: r.name },
-    reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5" },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: String(r.rating),
+      bestRating: "5",
+    },
     reviewBody: r.body,
     datePublished: r.datePublished,
   })),
 };
 
+function ReviewCard({
+  review,
+  "aria-hidden": ariaHidden,
+}: {
+  review: Review;
+  "aria-hidden"?: true;
+}) {
+  return (
+    <li
+      aria-hidden={ariaHidden}
+      className="relative flex w-90 shrink-0 flex-col gap-3 rounded-2xl border border-white/8 bg-white/3 p-5"
+    >
+      <span
+        aria-hidden="true"
+        className="absolute top-2 right-4 bg-[linear-gradient(to_right,#FF3BFF_0%,#ECBFBF_38%,#5C24FF_76%,#D94FD5_100%)] bg-clip-text font-montserrat text-5xl leading-none font-bold text-transparent opacity-20 [-webkit-background-clip:text]"
+      >
+        &ldquo;
+      </span>
+
+      <p className="flex-1 font-montserrat text-sm leading-relaxed text-white/60">
+        {review.body}
+      </p>
+
+      <div className="h-px bg-white/6" />
+
+      <div className="flex items-center gap-3">
+        <div
+          aria-hidden="true"
+          className="shrink-0 rounded-full bg-[linear-gradient(to_right,#FF3BFF_0%,#ECBFBF_38%,#5C24FF_76%,#D94FD5_100%)] p-0.5"
+        >
+          <div className="flex size-8 items-center justify-center rounded-full bg-black">
+            <span className="font-montserrat text-xs font-medium text-white/80">
+              {review.initials}
+            </span>
+          </div>
+        </div>
+        <div className="min-w-0 flex-1">
+          <p className="truncate font-montserrat text-sm font-medium text-white">
+            {review.name}
+          </p>
+          <p className="truncate font-montserrat text-xs text-white/50">
+            {review.role} · {review.company}
+          </p>
+        </div>
+        <StarRating rating={review.rating} />
+      </div>
+    </li>
+  );
+}
+
+function MarqueeRow({
+  direction,
+  reviews,
+}: {
+  direction: "left" | "right";
+  reviews: Review[];
+}) {
+  return (
+    <div className="flex overflow-hidden py-2">
+      <ul
+        className={cn(
+          "flex w-max shrink-0 list-none items-stretch gap-4",
+          direction === "left"
+            ? "animate-marquee-left group-hover:[animation-play-state:paused]"
+            : "animate-marquee-right group-hover:[animation-play-state:paused]",
+        )}
+      >
+        {reviews.map((review) => (
+          <ReviewCard key={review.id} review={review} />
+        ))}
+        {reviews.map((review) => (
+          <ReviewCard
+            key={`${review.id}-dup`}
+            review={review}
+            aria-hidden={true}
+          />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export function ReviewsSection() {
   return (
-    <section aria-labelledby="reviews-title" className="w-full px-4 py-16 lg:py-24">
+    <section aria-labelledby="reviews-title" className="w-full py-16 lg:py-24">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className="mx-auto max-w-334">
+      <div className="mx-auto max-w-334 px-4">
         <h2
           id="reviews-title"
           className="mb-6 text-center font-montserrat text-2xl font-medium tracking-widest uppercase lg:text-3xl"
@@ -139,40 +230,20 @@ export function ReviewsSection() {
             <span className="font-medium text-white">6 reviews</span>
           </span>
         </div>
+      </div>
 
-        <ul className="grid list-none grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {reviews.map((review) => (
-            <li
-              key={review.id}
-              className="flex flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-6 lg:p-8"
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  aria-hidden="true"
-                  className="shrink-0 rounded-full bg-[linear-gradient(to_right,#FF3BFF_0%,#ECBFBF_38%,#5C24FF_76%,#D94FD5_100%)] p-0.5"
-                >
-                  <div className="flex size-10 items-center justify-center rounded-full bg-black">
-                    <span className="font-montserrat text-xs font-medium text-white/80">
-                      {review.initials}
-                    </span>
-                  </div>
-                </div>
-                <div className="min-w-0">
-                  <p className="truncate font-montserrat text-sm font-medium text-white">
-                    {review.name}
-                  </p>
-                  <p className="truncate font-montserrat text-xs text-white/50">
-                    {review.role} · {review.company}
-                  </p>
-                </div>
-              </div>
-              <StarRating rating={review.rating} />
-              <p className="flex-1 font-montserrat text-sm leading-relaxed text-white/60">
-                {review.body}
-              </p>
-            </li>
-          ))}
-        </ul>
+      <div
+        className="group overflow-hidden"
+        style={{
+          maskImage:
+            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+          WebkitMaskImage:
+            "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+        }}
+        aria-label="Customer reviews carousel"
+      >
+        <MarqueeRow direction="left" reviews={reviews} />
+        <MarqueeRow direction="right" reviews={reviews} />
       </div>
     </section>
   );
