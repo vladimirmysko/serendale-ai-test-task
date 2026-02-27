@@ -1,16 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
+
+import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+});
+
+const clashGrotesk = localFont({
+  src: "../fonts/ClashGrotesk-Variable.woff2",
+  variable: "--font-clash-grotesk",
 });
 
 export const metadata: Metadata = {
@@ -24,12 +32,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html
+      lang="en"
+      className={cn(
+        montserrat.variable,
+        spaceGrotesk.variable,
+        clashGrotesk.variable,
+        "bg-black text-white",
+      )}
+    >
+      <body>{children}</body>
     </html>
   );
 }
